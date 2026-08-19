@@ -1,41 +1,37 @@
 <!-- 
 ======================================================================
-Lección 2: Templates y rendering
-Objetivo: Utilizar templates y directivas para representar datos.
-
-Tareas a desarrollar:
-Crear un componente Libro.vue para mostrar datos de un libro usando v-bind.
-Usar v-if, v-show y v-for para mostrar/ocultar elementos o iterar sobre la lista de libros.
-Mostrar un mensaje si no hay libros disponibles.
+Lección 2 y 4: Componente Libro con Emisión de Eventos
 ======================================================================
 -->
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps, defineEmits } from 'vue'
 
-// Definimos los props: Este componente ESPERA recibir un objeto llamado "libro"
 const props = defineProps({
   libro: {
     type: Object,
     required: true
   }
 })
+
+// Definimos el evento personalizado que este componente emitirá hacia App.vue
+const emit = defineEmits(['eliminar'])
 </script>
 
 <template>
   <div class="libro-card">
-    <!-- Usamos {{ }} para renderizar los datos del objeto libro -->
-    <h3>{{ libro.titulo }}</h3>
-    <p><strong>Autor:</strong> {{ libro.autor }}</p>
-    <p><strong>Categoría:</strong> {{ libro.categoria }}</p>
+    <div class="info-texto">
+      <h3>{{ libro.titulo }}</h3>
+      <p><strong>Autor:</strong> {{ libro.autor }}</p>
+      <p><strong>Categoría:</strong> {{ libro.categoria }}</p>
+      <span v-show="libro.categoria === 'Ficción'" class="badge">🔥 Ficción</span>
+    </div>
     
-    <!-- Directiva v-show: La etiqueta siempre existe en el HTML, 
-         pero solo se hace visible si la categoría es Ficción -->
-    <span v-show="libro.categoria === 'Ficción'" class="badge">🔥 Ficción</span>
+    <!-- @click simple para emitir el evento 'eliminar' pasándole el ID del libro -->
+    <button class="btn-eliminar" @click="emit('eliminar', libro.id)">🗑️ Eliminar</button>
   </div>
 </template>
 
 <style scoped>
-/* El modificador "scoped" hace que estos estilos solo afecten a este componente */
 .libro-card {
   border: 1px solid #ddd;
   padding: 15px;
@@ -44,6 +40,10 @@ const props = defineProps({
   background-color: #fff;
   text-align: left;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  /* Flexbox para alinear el texto a la izquierda y el botón a la derecha */
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
 }
 .badge {
   display: inline-block;
@@ -53,5 +53,17 @@ const props = defineProps({
   border-radius: 12px;
   font-size: 12px;
   margin-top: 5px;
+}
+.btn-eliminar {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.btn-eliminar:hover {
+  background-color: #cc0000;
 }
 </style>
