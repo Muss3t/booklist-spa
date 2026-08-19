@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-// IMPORTANTE: Actualizamos la ruta porque ahora estamos dentro de "views"
+// IMPORTANTE: Actualizamos la ruta
 import Libro from '../components/Libro.vue' 
 
 const nombreUsuario = ref('Kisi') 
@@ -85,7 +85,7 @@ const mostrarTip = () => {
             <label>Descripción corta:</label>
             <textarea v-model="nuevoLibro.descripcion" placeholder="Escribe un breve resumen..."></textarea>
           </div>
-          <button type="submit" class="btn-guardar">💾 Guardar Libro</button>
+          <button type="submit" class="btn-guardar">Guardar Libro</button>
         </form>
 
         <div class="preview-box">

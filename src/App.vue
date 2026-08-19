@@ -4,12 +4,7 @@ Lección 1: Componente, MVVM y estado (Hecho)
 Lección 2: Templates, v-for, v-show (Hecho)
 Lección 3: Binding de formularios v-model (Hecho)
 Lección 4: Manejo de eventos (Hecho)
-Lección 5: Enrutamiento con Vue Router
-Objetivo: Navegar entre distintas vistas de la aplicación.
-Tareas a desarrollar:
-● Configurar Vue Router con al menos dos rutas (Home y About).
-● Usar <router-link> para la navegación.
-● Usar <router-view> para renderizar los componentes de ruta.
+Lección 5: Enrutamiento con Vue Router (hecho)
 ======================================================================
 -->
 <script setup>
@@ -22,11 +17,11 @@ import { RouterLink, RouterView } from 'vue-router'
     <!-- Barra de Navegación Global -->
     <nav class="navbar">
       <!-- RouterLink actúa como la etiqueta <a> pero sin recargar la página -->
-      <RouterLink to="/" class="nav-link">🏠 Inicio (Gestor)</RouterLink>
-      <RouterLink to="/about" class="nav-link">ℹ️ Acerca de</RouterLink>
+      <RouterLink to="/" class="nav-link"> Inicio (Gestor)</RouterLink>
+      <RouterLink to="/about" class="nav-link">Acerca de</RouterLink>
     </nav>
 
-    <!-- Aquí se inyectan dinámicamente el HomeView.vue o AboutView.vue -->
+    <!-- HomeView.vue o AboutView.vue -->
     <RouterView />
   </div>
 </template>
