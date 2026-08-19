@@ -1,38 +1,22 @@
-# booklist-spa
+# Editorial Nova - BookList SPA
 
-This template should help get you started developing with Vue 3 in Vite.
+Una Single Page Application (SPA) desarrollada con Vue.js para la gestión del catálogo de libros de la Editorial Nova. Este proyecto corresponde a la entrega final del Módulo 6.
 
-## Recommended IDE Setup
+## Maqueta Funcional
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Puedes revisar la versión funcional y el diseño de la interfaz en el siguiente enlace:
+**[Haz clic aquí para ver la maqueta funcional](https://muss3t.github.io/booklist-spa/)**
 
-## Recommended Browser Setup
+## Tecnologías y Conceptos Aplicados
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+Este proyecto fue construido aplicando los requerimientos clave del módulo:
 
-## Customize configuration
+* **Arquitectura de Componentes:** Uso del patrón MVVM y separación entre componentes padre (`App.vue`) e hijo (`Libro.vue`).
+* **Renderizado Declarativo:** Uso de directivas estructurales como `v-for`, `v-if` y `v-show` para iterar y condicionar la vista.
+* **Reactividad Bidireccional:** Implementación de formularios interactivos utilizando `v-model`.
+* **Manejo de Eventos:** Captura de acciones del usuario (`@click`, `@keyup.enter`), uso de modificadores (`.prevent`, `.once`) y emisión de eventos (`defineEmits`).
+* **Enrutamiento (SPA):** Configuración de múltiples vistas (`HomeView.vue` y `AboutView.vue`) utilizando Vue Router sin recarga de página.
 
-See [Vite Configuration Reference](https://vite.dev/config/).
 
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+---
+*Desarrollado por Kisi Toledo*
