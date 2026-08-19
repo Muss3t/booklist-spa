@@ -1,85 +1,110 @@
+<!-- 
+======================================================================
+Lección 1: Introducción a Vue.js
+Objetivo: Comprender la estructura básica de un componente Vue.
+
+Tareas a desarrollar:
+Crear el componente principal App.vue con estructura template/script/style.
+Implementar un contador básico con datos reactivos (data, methods).
+Aplicar el patrón MVVM y mostrar el nombre del usuario.
+======================================================================
+-->
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { ref } from 'vue'
+
+// 1. Patrón MVVM: Dato reactivo (Modelo) que se refleja en la Vista
+const nombreUsuario = ref('Kisi') 
+
+// 2. Dato reactivo para el contador
+const contador = ref(0)
+
+// 3. Lógica para modificar el estado (ViewModel)
+const incrementar = () => {
+  contador.value++
+}
+
+const disminuir = () => {
+  if (contador.value > 0) {
+    contador.value--
+  }
+}
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <div class="app-container">
+    <header>
+      <h1>📚 Editorial Nova - BookList SPA</h1>
+      <p>Bienvenido/a al sistema, <strong>{{ nombreUsuario }}</strong></p>
+    </header>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+    <main class="lesson-one">
+      <h2>Lección 1: Contador Básico</h2>
+      <div class="counter-box">
+        <p>Libros registrados en esta sesión: <span>{{ contador }}</span></p>
+        
+        <div class="buttons">
+          <button @click="disminuir" :disabled="contador === 0">- Quitar</button>
+          <button @click="incrementar">+ Añadir</button>
+        </div>
+      </div>
+    </main>
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
+<style>
+.app-container {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
   text-align: center;
-  margin-top: 2rem;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
+header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
+.counter-box {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
   display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
 }
 
-nav a:first-of-type {
-  border: 0;
+.counter-box span {
+  font-size: 24px;
+  font-weight: bold;
+  color: #42b983;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+.buttons {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  background-color: #42b983;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
 
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+button:hover:not(:disabled) {
+  background-color: #33a06f;
 }
 </style>
