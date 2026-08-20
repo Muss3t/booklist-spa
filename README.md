@@ -4,8 +4,8 @@ Una Single Page Application (SPA) desarrollada con Vue.js para la gestión del c
 
 ## Maqueta Funcional
 
-Puedes revisar la versión funcional y el diseño de la interfaz en el siguiente enlace:
-**[Haz clic aquí para ver la maqueta funcional]([https://booklist-spa.vercel.app](https://booklist-spa.vercel.app))**
+Revisar la versión funcional y el diseño de la interfaz en el siguiente enlace:
+**[Haz clic aquí para ver la maqueta funcional](https://booklist-spa.vercel.app)**
 
 ## Tecnologías y Conceptos Aplicados
 
