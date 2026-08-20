@@ -61,11 +61,28 @@ body {
 .btn-tip:hover { background-color: rgba(255,255,255,0.25); transform: translateY(-1px); }
 
 /* CONTENEDORES Y TIPOGRAFÍA */
-h2 { color: var(--text-main); font-size: 24px; margin-bottom: 25px; letter-spacing: -0.5px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; display: inline-block;}
-.divisor { margin: 50px 0; border: 0; border-top: 1px solid var(--border-color); }
-.counter-box { background-color: var(--card-bg); border: 1px solid var(--border-color); padding: 30px; border-radius: 16px; display: inline-block; text-align: center; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03); min-width: 300px; }
-.counter-box p { margin: 0 0 15px 0; color: var(--text-muted); font-size: 16px;}
-.counter-box span { font-size: 36px; font-weight: 800; color: var(--primary); display: block; margin-bottom: 20px;}
+
+h2 { 
+  color: var(--text-main); 
+  font-size: 24px; 
+  margin: 0 auto 30px auto; 
+  letter-spacing: -0.5px; 
+  border-bottom: 2px solid var(--border-color); 
+  padding-bottom: 10px; 
+  display: table; /* Esto mantiene la línea del tamaño del texto, pero fuerza el salto hacia abajo */
+}
+
+.counter-box { 
+  background-color: var(--card-bg); 
+  border: 1px solid var(--border-color); 
+  padding: 30px; 
+  border-radius: 16px; 
+  display: block; /* Obliga a la caja a usar su propia línea completa */
+  margin: 0 auto; /* La centra horizontalmente */
+  text-align: center; 
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03); 
+  max-width: 350px; 
+}
 
 /* BOTONES GENERALES */
 .buttons { display: flex; gap: 12px; justify-content: center; }
